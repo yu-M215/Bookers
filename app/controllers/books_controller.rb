@@ -1,14 +1,11 @@
 class BooksController < ApplicationController
   def index
-
-  end
-
-  def new
+    @books = Book.all
     @book = Book.new
   end
 
   def create
-    book = Blog.new(book_params)
+    book = Book.new(book_params)
     book.save
   end
 
@@ -19,6 +16,9 @@ class BooksController < ApplicationController
   end
 
   private
+
   def book_params
-    params.require(:book) .permit(:title,:body)
+    params.require(:book).permit(:title,:body)
+  end
+
   end
